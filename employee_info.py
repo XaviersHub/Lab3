@@ -10,7 +10,6 @@ employee_data = [
 
 def get_employees_by_age_range(age_lower_limit, age_upper_limit):
     result = []
-
     # check for age limits and append the item to result
     for item in employee_data:
         if int(item["age"]) > int(age_lower_limit) and int(item["age"]) < int(age_upper_limit):
@@ -21,18 +20,18 @@ def get_employees_by_age_range(age_lower_limit, age_upper_limit):
 def calculate_average_salary():
     total = 0
     average = 0
-
-    #add your implementation to calculate here
-
-
-    return average
+    for i in employee_data:
+        total = total + int(i["salary"])
+    average = total/6
+    return round(average,2)
 
 def get_employees_by_dept(department):
     result = []
-
     # Add your implementation from here
-
-
+    for i in employee_data:
+        depart = i.get("department")
+        if depart == department:
+            result.append(i)
     return result
 
 def display_all_records():
